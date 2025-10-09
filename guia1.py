@@ -2,7 +2,7 @@ import math #Importamos la libreria para usar algunas funciones
 #1
 def imprimir_hola_mundo():
     return("hola mundo")
-
+print(imprimir_hola_mundo())
 #1.2. imprimir_un_verso(): que imprima un verso de una canción que vos elijas, respetando los saltos de línea mediante
 #el caracter \n."""
 def imprimir_un_verso():
