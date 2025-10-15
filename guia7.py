@@ -42,8 +42,29 @@ print(problema_divide_a_todos([2,4,6], 2))
 def sumatotal(s:list[int])-> int:
     i = 0
     largo = len(s)
+    suma = 0
     while i < largo:
         suma = suma + s[i]
-        i= i + 1 
+        i = i + 1 
     return suma
 print(sumatotal([1,2,3]))
+
+#1.3 BISSGPT
+def sumatotal(s: list[int]) -> int:
+    suma = 0
+    for x in s:
+        suma += x
+    return suma
+
+
+#1.4 Problema maximo, devuelve el valor del elemento mas grande dentro de la secuencia:
+def mayor(s: list[int])->int:
+    i=0
+    largo=len(s)
+    mayor= s[0]
+    while i < largo:
+        if s[i] > mayor:
+            mayor = s[i]
+        i = i + 1
+    return mayor 
+print(mayor([1,2,3,4,5,3]))
