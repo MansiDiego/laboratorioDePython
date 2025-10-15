@@ -267,3 +267,175 @@ def laburar_o_vacaciones(sexo: str, edad: int)-> str:
         res = "toca chambear, lo siento maquina!!"    
     return res
 print(laburar_o_vacaciones("Masculino", 66))    
+
+#6 Imprimir los numeros del 1 al 10 usando el bucle While.
+i = 1
+def hasta(i:int)->int:
+    while i < 11:
+        print(i) 
+        i = i + 1
+print(hasta(i))
+
+#6.2 Escribir una función que imprima los números pares entre el 10 y el 40.
+y=2
+def paresDel10Al40(y:int)->int:
+    while y < 41:
+        print(y)
+        y= y + 2
+print(paresDel10Al40(y))
+
+#6.3 Escribir una función que imprima la palabra “eco” 10 veces.
+def ecosss(x:str)->str:
+    resultado = 10*x
+    return resultado
+print(ecosss("eco\n"))
+
+#6.3-BIS misma funcion implementada con el bucle while
+x=1
+def ecosBis(x:int)->str:
+    while x <= 10:
+        print("eco")
+        x = x + 1
+print(ecosBis(x))
+
+#Ejercicios:
+#6.4
+#Funca al parecer
+def cuentaRegresiva(x:int)->int:
+    while x > 1:
+        print(x)
+        x = x - 1
+    return "Depegue"
+print(cuentaRegresiva(8))
+
+#6.5 
+def viajeTiempo(x: int, y:int)->int:
+    while x > y:
+       x = x - 1 
+       resultado = x
+       print("viajo un año al pasado, se encuentra en el año:")
+       print(resultado)
+print(viajeTiempo(2000, 1998))
+
+#6.6
+def hastaAristoteles(partida:int )->int:
+    while partida >= 384:
+        partida =  partida - 20
+        resultado = partida
+        print("esta en retroceso de a 20 años, y su año actual es:")
+        print(resultado)
+print(hastaAristoteles(600))
+
+#Ejercicio 7: Aplicar todas las funciones del ejercicio 6, pero aplicando for num in range
+
+#7.1
+#Implrimir los numero del 1 al 10:
+def del1Al10()->int:
+    for i in range (11): 
+        print(i)
+print(del1Al10())
+
+#7.2 
+#Imprimir los numeros pares del 10 al 40:
+def paresdel10al40()->None:
+    for x in range(10, 42, 2):
+        print(x)
+print(paresdel10al40())
+#"None porque no devulve nada en especifico, solo pedimos que imprima por pantalla"
+
+#7.3
+#Imprimir la palabra "eco" 10 veces con una funcion for
+palabras =["eco", "eco", "eco", "eco", "eco", "eco", "eco", "eco", "eco", "eco"]
+def ecopor10()->None:
+    for palabra in palabras:
+        print(palabra)
+print(ecopor10())
+#7.3-BIS de forma mas limpia
+def ecopor():
+    for palabra in range(10):
+        palabra= "eco"
+        print(palabra)
+ecopor()
+
+
+#7.4 dado un parametro, crear una funcion cuenta regresiva:
+def cuentaRegres(x: int)->int:
+    for i in range(x, 0, -1):
+        print(i)
+    return "despegue"
+print(cuentaRegres(7))
+
+#7.4 Bis, queria comprobar que la variable "i" no era build-int
+def equisd(z:int)->int:
+    for z in range(z, 0, -1):
+        print(z)
+    return "despegue"
+print(equisd(8))
+
+#7.5 Viaje en el tiempo al pasado:
+def viajess(partida: int, llegada:int)-> int:
+    for partida in range(partida, llegada - 1, -1):
+        print("viajo un año al pasado, y ahora se encuentra en:")
+        print(partida)
+print(viajess(2025, 2023))
+
+#7.6 Viaje hasta Aristoteles
+def hastaAristoteles(desde:int)->int:
+    for desde in range(desde, 384-5, -20):
+        print("esta en retroceso de a 20 años, y su año actual es:")
+        print(desde)
+print(hastaAristoteles(500))
+
+#8 Realizar la ejecución simbolica de los siguientes numeros:
+#8.1:
+x = 5
+y = 7
+x = x + y
+print(x)#Observación toma el ultimo valor porque estamos modificando la variable global x.
+
+#8.2:
+x = 5
+y = 7
+z = x + y
+y = z * 2
+print(z)
+print(y)
+
+#8.3:
+x = 5
+y = 7
+x ="hora"
+y = x * 2
+print(y)
+
+#8.4 
+x = False
+res = not(x)
+print(res)
+
+#8.5
+x = False
+x = not(x)
+print(x)#toma el ultimo valor de "X", porque es la ultima asignación.
+
+#8.6
+x = True 
+y = False
+res = x and y
+x = res and x
+
+print(x)
+
+#9.0
+def rt(x: int, g: int) -> int:
+    g = g + 1
+    return x + g
+
+print(rt(1, 0))
+
+g: int = 0
+def ro(x: int) -> int:
+    global g
+    g = g + 1
+    return x + g
+print(ro(1))
