@@ -61,10 +61,103 @@ def sumatotal(s: list[int]) -> int:
 def mayor(s: list[int])->int:
     i=0
     largo=len(s)
-    mayor= s[0]
+    mayor = s[0]
     while i < largo:
         if s[i] > mayor:
             mayor = s[i]
         i = i + 1
     return mayor 
-print(mayor([1,2,3,4,5,3]))
+print(mayor([1,2,3,4,7,3]))
+
+#1.5
+def minimo(s:list[int] )-> int:
+    i = 0
+    menor = s[0]
+    longitud = len(s)
+    while i < longitud:
+        if s[i] < menor:
+            menor = s[i]#Basicamente estoy reasignando cual es el menor de todos
+        i = i + 1
+    return menor
+
+print(minimo([4,3,4,1]))
+#MINIMO BISS CON FOR: "Es mas declarativo y legible usar for"
+def minimoBiss(s: list[int])->int:
+    menor = s[0]
+    for elemento in s:
+        if elemento < menor:
+            menor = elemento
+    return menor
+print(minimoBiss([1,2,3,2,5,0]))
+
+#1.6 Problemas Ordenados:
+def ordenados(s: list[int])->bool:
+    for i in range(len(s)-1):
+        if s[i] > s[i+1]:
+            return False
+    return True
+print(ordenados([3,2,3,5]))
+
+#1.6 Biss con while:
+def ordenadosBiss(s: list[int])->bool:
+    i=0
+    longitud= len(s) - 1
+    while i < longitud:
+        if s[i] > s[i+1]:
+            return False
+        i = i + 1
+    return True 
+print(ordenadosBiss([4,2,3,4]))
+#PERFECTO :), Lo que se le suma al while es declarar que vas a recorrer la lista excepto el ultimo elemento y hacer que el bucle itere la funcion a mano
+
+#1.7 Problema pos maximo:
+def pos_maximo(s: list[int])-> int:
+    if len(s)==0:
+        return -1
+    else:
+        i = 0
+        indiceMaximo = 0
+        while i < len(s) - 1:
+            if s[i] > s[indiceMaximo]:
+                indiceMaximo = i
+            i = i + 1
+        return indiceMaximo
+print(pos_maximo([]))
+
+#1.8 Problema posicion del minimo:
+def pos_minimo(s: list[int])->int:
+    if len(s)==0:
+        return -1
+    else:
+        i=0
+        indiceMenor = 0
+        while i < len(s) - 1 :
+            if s[i] < s[indiceMenor]:
+                indiceMenor = i 
+            i = i + 1
+        return indiceMenor
+print(pos_minimo([]))
+#EN ALGUNOS CASOS CONVIENE UN WHILE Y FUE. es mas te diria que con un while podes correr cualquier cosa.
+
+#1.9 Dada una lista de palabra, devolver true, si alguna palabra tiene longitud mayor a 7
+def palabras(s:list[str])->bool:
+    for i in range(len(s) - 1):#La condicion me pide que tiene que fijarse en todos menos en el ultimo
+        if len(s[i]) > 7:
+            return True
+    return False
+print(palabras(["mate","mateos","mansilla"]))    
+
+
+
+#1.10 le mete una palabra y me determina si es palindromo o no
+def palindromo(s:list[str])->bool:
+  i = 0
+  ultimo = len(s)-1 
+  while i < ultimo:
+    if s[i] == s[ultimo]:
+        return True
+    i = i + 1
+    ultimo = ultimo - 1
+    return False
+  
+print(palindromo(["osso"]))
