@@ -252,9 +252,8 @@ def cantidasdImpares(s:list[int])->int:
                 totalimpares = totalimpares + 1 
 
     return totalimpares
-
 print(cantidasdImpares([133,3,2,3,4,5,6,7,7,7,7,7]))
-
 ##Y es asi lamentablemente, nada que valga la pena se consigue facilmente.
 
-#2
+
+
