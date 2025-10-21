@@ -81,7 +81,7 @@ def minimo(s:list[int] )-> int:
     return menor
 
 print(minimo([4,3,4,1]))
-#MINIMO BISS CON FOR: "Es mas declarativo y legible usar for"
+#MINIMO BISS CON FOR: "Es mas declarativo y legible usar for para este caso"
 def minimoBiss(s: list[int])->int:
     menor = s[0]
     for elemento in s:
@@ -90,7 +90,7 @@ def minimoBiss(s: list[int])->int:
     return menor
 print(minimoBiss([1,2,3,2,5,0]))
 
-#1.6 Problemas Ordenados:
+#1.6 Problemas Ordenados de forma creciente:
 def ordenados(s: list[int])->bool:
     for i in range(len(s)-1):
         if s[i] > s[i+1]:
@@ -150,14 +150,111 @@ print(palabras(["mate","mateos","mansilla"]))
 
 
 #1.10 le mete una palabra y me determina si es palindromo o no
-def palindromo(s:list[str])->bool:
-  i = 0
-  ultimo = len(s)-1 
-  while i < ultimo:
-    if s[i] == s[ultimo]:
-        return True
-    i = i + 1
-    ultimo = ultimo - 1
+def palindromo(s: list[str]) -> bool:
+    i = 0
+    ultimo = len(s) - 1  # índice del último elemento
+    while i < ultimo:
+        if s[i] != s[ultimo]:  # si no coinciden, no es palíndromo
+            return False
+        i = i + 1
+        ultimo = ultimo - 1
+    return True  # si salió del bucle, todos coincidieron
+
+print(palindromo(['o', 's','o']))  # True
+
+#1.10Correción BISS:
+def palindromoCorregido(s: str)->bool:
+    i = 0 
+    ultimo = len(s) - 1
+    while i < ultimo:
+        if s[i] !=s[ultimo]:
+            return False
+        i = i + 1
+        ultimo = ultimo - 1
+    return True
+print(palindromoCorregido("osoz"))
+
+#1.11 devolver true, si hay 3 elementos iguales dentro de una secuencia;)
+def tresIgualesConsecutivos(s: list[int])->bool:
+    i=0
+    while i < len(s) - 2:
+        if s[i]==s[i+1] and s[i]== s[i+2]:
+            return True
+        i = i + 1
     return False
-  
-print(palindromo(["osso"]))
+print(tresIgualesConsecutivos([1,2,0,3,3]))#OJO CON LA IDENTACIÓN, es importante
+
+#1.12Recorrer una palabra en formato string, y devolver true si tiene 3 vocales distintas:
+def vocal(palabra: str)->bool:##ARME PRIMERO UNA FUNCION QUE DETECTA VOCALES
+    vocales = "AEIOUaeiou"
+    for letra in palabra:
+        if letra in vocales:
+            return True
+    return False
+print(vocal("mt"))
+#ya tengo una funcion que me devuelve true si hay una letra que es vocal, ahora voy a crear otra que las vaya guardando:
+
+def sumaVocal(palabra:str)->int:
+    sumaVocales = set()
+    i = 0
+    while i < len(palabra):
+        if vocal(palabra[i]):
+            sumaVocales.add(palabra[i].lower())
+        i = i + 1 #si justo en la posición i no habia una vocal va a pasar a la siguiente, y así sucesivamente, hasta el ultimo elemento
+    return len(sumaVocales) >= 3
+print(sumaVocal("mateo"))    
+
+#1.13
+def pos_secuencia_ordenada_mas_larga(s: list[int]) -> int:
+    inicio_actual = 0
+    long_actual = 1
+    inicio_max = 0
+    long_max = 1
+
+    i = 0
+    while i < len(s) - 1:
+        if s[i] <= s[i + 1]:
+            # sigue ordenada
+            long_actual += 1
+        else:
+            # se rompió la secuencia
+            if long_actual > long_max:
+                long_max = long_actual
+                inicio_max = inicio_actual
+            # reinicio para la nueva secuencia
+            inicio_actual = i + 1
+            long_actual = 1
+        i += 1
+
+    # al final del bucle hay que comparar por si la secuencia más larga termina al final
+    if long_actual > long_max:
+        long_max = long_actual
+        inicio_max = inicio_actual
+
+    return inicio_max
+print(pos_secuencia_ordenada_mas_larga([1,2,3,4,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9]))
+
+#1.14 Cantidad de digitos Impares:
+#primero creo una funcion que detecte si un digito es impar:
+def impares(n:int)->bool:
+    if n % 2!=0 :
+        return True
+    else:
+        return False
+print(impares(7))#Genial, funca
+#Ahora voy a construir una funcion que cuente la cantidad de numeros impares:
+
+def cantidasdImpares(s:list[int])->int:
+    totalimpares = 0
+    for numero in s:
+        for digito in str(abs(numero)):#convierto cada numero en un string y recorro cada letra que seria un numero
+            if impares(int(digito)):
+                totalimpares = totalimpares + 1 
+
+    return totalimpares
+
+print(cantidasdImpares([133,3,2,3,4,5,6,7,7,7,7,7]))
+
+##Y es asi lamentablemente, nada que valga la pena se consigue facilmente.
+
+#2

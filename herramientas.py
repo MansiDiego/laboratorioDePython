@@ -65,7 +65,7 @@ print(max(palabras, key=len))  # 'computadora' (más larga)
 
 
                         ###Mas Herramientas:
-#sqrt (raiz cuadrada),(viene del modulo de "math") devuelve un float con la raiz cuadrada del numero que le hayamos pasado EJEMPLO:
+#🔢 1.sqrt (raiz cuadrada),(viene del modulo de "math") devuelve un float con la raiz cuadrada del numero que le hayamos pasado EJEMPLO:
 import math
 def raizCuadrada(x:int)->float:
     if x < 10:
