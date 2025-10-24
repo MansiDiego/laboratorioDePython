@@ -29,14 +29,36 @@ def cantidad_elementos(p: Pila) -> int:
     contador = 0
 
     # Paso 1: Pasar todos los elementos de p a aux
-    while not p.empty():
-        elemento = p.get()
-        aux.put(elemento)
-        contador += 1
+    while not p.empty():#Con el bucle While not estoy diciendo basicamente, mientras no pase esto, quiero que hagas tal cosa.
+        elemento = p.get()#estoy guardando cada elemento  que estoy desapilando, en la variable "Elemento"
+        aux.put(elemento)#y aca basicamente le estoy agregando los elementos que estoy desapilando
+        contador += 1#por cada vez que elemino y vuelvo a agregar un elemento cuento 1
 
     # Paso 2: Restaurar la pila original
     while not aux.empty():
+        p.put(aux.get())#Quiero que a la pila original le agregues los elementos que le habias sacado, y guardado en la pila aux
+    #es como el juego de las torres de Hanoish, necesitas apilar las cosas en otra pila para guardar los elementos, y luego lo volves a 
+    return contador
+
+pila_nueva = cantidad_elementos([1,2,3,4,5,5])
+print(list(pila_nueva.queue))
+
+
+#3 
+def buscar_elmaximo(p:Pila[int])->int:
+    aux = Pila()
+    elementoMayor = 0
+
+    while not p.empty():
+        paraComparar = p.get()
+        aux.put(paraComparar)
+        if elementoMayor < paraComparar:
+            elementoMayor = paraComparar
+
+    #y Ahora lo mismo vuelvo a reapilar la pila original, "SACANDOLE LOS ELEMENTOS A LA PILA AUXILIAR":
+    while not aux.empty():
         p.put(aux.get())
 
-    return contador
-#REPASAR Y SEGUIR HASTA EL EJERCICIO  2 "COLAS", Y LUEFO FINALIZAR EL EJERCICIO 2 DE P7
+    return elementoMayor
+
+#print

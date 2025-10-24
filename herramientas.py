@@ -107,4 +107,25 @@ print(math.ceil(-2.3))  # -2  (sube al entero mayor)
 #sum(seq)	#Suma todos los elementos (solo numéricos).	sum((1, 2, 3))	6
 #sorted(seq)	#Devuelve una lista ordenada.	sorted([3, 1, 2])	[1, 2, 3]
 
+#SLICING PARA MODIFICAR Y OBTENER SUBCONJUNTOS DE LISTAS:
+lista = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+
+# Tomar los primeros 5 elementos
+print(lista[0:5])  # [0, 1, 2, 3, 4]
+
+# Tomar desde el índice 3 hasta el final
+print(lista[3:])   # [3, 4, 5, 6, 7, 8, 9]
+
+# Tomar desde el inicio hasta el índice 5 (sin incluirlo)
+print(lista[:5])   # [0, 1, 2, 3, 4]
+
+# Tomar elementos de 2 en 2
+print(lista[::2])  # [0, 2, 4, 6, 8]
+
+# Tomar una sublista específica, por ejemplo del índice 2 al 7, de 2 en 2
+print(lista[2:8:2])  # [2, 4, 6]
+
+# Invertir la lista
+print(lista[::-1])  # [9, 8, 7, 6, 5, 4, 3, 2, 1, 0]
+
 

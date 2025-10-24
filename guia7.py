@@ -257,3 +257,111 @@ print(cantidasdImpares([133,3,2,3,4,5,6,7,7,7,7,7]))
 
 
 
+
+####2 modificando acorde si es par o impar:
+def CerosEnPosicionesParesDos(s: list[int]) -> list[int]:
+    res = list(s)         # copia de la lista original
+    i = 0
+    while i < len(res):
+        if i % 2 == 0:    # posición par → reemplazo por 0
+            res[i] = 0
+        else:              # posición impar → mantengo el valor
+            res[i] = res[i]
+        i += 1
+    return res
+
+print(CerosEnPosicionesParesDos([7, 7, 7, 7, 7, 7]))
+
+
+#2.2
+def CerosEnPosicionesIMPares(s:list[int])->list[int]:
+    i = 0
+    while i < len(s):
+        if i % 2 == 0:
+            s[i] = s[i]
+        else:
+            s[i] = 0
+        i += 1
+    return s
+
+print(CerosEnPosicionesIMPares([7,7,7,7]))
+
+
+#2.2Biss con for:
+def CerosEnPosicionesIMParesBiss(s: list[int]) -> list[int]:
+    for i in range(len(s)):           # recorre los índices 0, 1, 2, ...
+        if i % 2 != 0:                # si la posición es impar
+            s[i] = 0
+    return s
+
+print(CerosEnPosicionesIMParesBiss([7, 7, 7, 7, 7, 7, 7, 7]))#No importa el elemente en la posicion, sino solamente el indice de la posicion.
+
+
+#2.3 Problema sin vocales:
+
+def sin_vocales(s: str) -> str:
+    """
+    Devuelve la subsecuencia de s que se obtiene al quitarle las vocales.
+    requiere: True
+    asegura: res es la subsecuencia de s sin las vocales
+    """
+    res = ""                      # resultado vacío
+    vocales = "AEIOUaeiou"        # conjunto de vocales
+    for c in s:                   # recorro cada caracter de s
+        if c not in vocales:      # si no es vocal
+            res += c              # lo agrego a la subsecuencia
+    return res
+
+# Ejemplo:
+print(sin_vocales("Hola Mundo"))
+
+#2.4
+def reemplaza_vocales(s: str)->str:
+    res = ""
+    vocales = "AEIOUaeiou"
+    for letras in s:
+        if letras not in vocales:
+            res += letras
+        else:
+            res += "-"
+    return res
+
+print(reemplaza_vocales("hola mundo"))
+
+#2.5
+def da_vuelta_str(s: str) -> str:
+    """
+    Devuelve una cadena igual a s pero invertida.
+    requiere: True
+    asegura: len(res) == len(s) y para todo i, res[i] = s[len(s) - i - 1]
+    """
+    res = ""
+    i = len(s) - 1
+    while i >= 0:
+        res += s[i]
+        i -= 1
+    return res
+
+print(da_vuelta_str("hola"))  # me va a devolver "aloh"
+
+#2.5BISS usando Slicing:
+def daVuelta(s: str)->str:
+    res = s[::-1]
+    return res
+print(daVuelta("Mateo"))
+
+#2.6
+def eliminar_repetidos(s: str) -> str:
+    """
+    Devuelve una cadena sin caracteres repetidos, conservando el orden original.
+    requiere: True
+    asegura: len(res) <= len(s) y no hay caracteres repetidos en res
+    """
+    res = ""
+    for c in s:
+        if c not in res:   # si el caracter no está todavía en res
+            res += c       # lo agrego
+    return res
+
+# Ejemplo:
+print(eliminar_repetidos("banana"))  # → "ban"#Repasar 2.6 y como carajos usar slicing
