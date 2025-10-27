@@ -363,5 +363,10 @@ def eliminar_repetidos(s: str) -> str:
             res += c       # lo agrego
     return res
 
+"""
 # Ejemplo:
 print(eliminar_repetidos("banana"))  # → "ban"#Repasar 2.6 y como carajos usar slicing
+# Tomar una sublista específica, por ejemplo del índice 2 al 7, de 2 en 2
+lista = [1,2,3,4,5,6,7,8,9,10]#INICIO:PASO:FIN (DEL LADO IZQ DE LOS ":" VAN LOS INDICES)
+print(lista[2:8:2])  # [2, 4, 6]
+"""
